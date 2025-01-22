@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>DRA Site</title>
+</head>
+<body>
+    <header class="header">
+
+       <img src="/static/images/logo.png" alt="DRA Logo" class="logo">
+        <nav class="navigation">
+            {% if user %}
+            <p>Вітаю, {{ user.nickname }}!</p>
+            {% else %}
+            <p>Ви не увійшли в акаунт.</p>
+            <a href="/LogIn">Log In</a>
+            <a href="/SignUp">Sign Up</a>
+            {% endif %}
+        </nav>
+    </header>
+    <nav>
+        <a href="/Character">   <font  face="Arial" size="3" color ="#F5E2CD"> Мій Персонаж 🦸 </font> </a>
+        <a href="/Regulations">  <font  face="Arial" size="3" color ="#F5E2CD"> Правила 📔 </font> </a>
+        <a href="/Mechanics">   <font  face="Arial" size="3" color ="#F5E2CD"> Механіки ⚙️ </font> </a>
+        <a href="/News">    <font  face="Arial" size="3" color ="#F5E2CD"> Новини 📺 </font> </a>
+    </nav>
+    <div class="content">
+        <h1><font  face="Sports World" size="9" color ="#F5E2CD"> Official DRA Site </font> </h1>
+        <p><font  face="Sports World" size="3" color ="#F5E2CD"> Сайт Створений Саньою </font></p>
+    </div>
+    <footer>
+        <p>&copy; 2025 DRA Sanya Corporation. Всі права захищені.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лист персонажа D&D 5e</title>
+    <link rel="stylesheet" href="static/Character.css">
+</head>
+<body>
+    <header class="header">
+
+       <img src="/static/images/logo.png" alt="DRA Logo" class="logo">
+        <nav class="navigation">
+            {% if user %}
+                <p>Вітаю, {{ user.nickname }}!</p>
+            {% else %}
+                <p>Ви не увійшли в акаунт.</p>
+                <a href="/LogIn">Log In</a>
+                <a href="/SignUp">Sign Up</a>
+            {% endif %}
+        <nav>
+    </header>
+    <nav>
+        <a href="/">   <font face="Arial" size="3" color="#F5E2CD"> Головна </font> </a>
+        <a href="/Regulations">  <font face="Arial" size="3" color="#F5E2CD"> Правила 📔 </font> </a>
+        <a href="/Mechanics">   <font face="Arial" size="3" color="#F5E2CD"> Механіки ⚙️ </font> </a>
+        <a href="/News">    <font face="Arial" size="3" color="#F5E2CD"> Новини 📺 </font> </a>
+    </nav>
+            <div class="content">
+    <div class="character-sheet">
+        <h1>Лист персонажа DRA</h1>
+<form method="POST">
+
+            <label>Ім'я:</label>
+            <input type="text" name="name" value="{{ character.name if character else '' }}" required>
+
+            <label>Раса:</label>
+            <input type="text" name="race" value="{{ character.race if character else '' }}" required>
+
+            <label>Клас:</label>
+            <input type="text" name="char_class" value="{{ character.char_class if character else '' }}" required>
+
+            <div class="stats-grid">
+                <div class="stat-block">
+                    <label>Сила:</label>
+                    <input type="number" name="strength" value="{{ character.strength if character else 10 }}" required>
+                    <span class="modifier">Модифікатор: {{ ((character.strength if character else 10) - 10) // 2 }}</span>
+                </div>
+
+                <div class="stat-block">
+                    <label>Спритність:</label>
+                    <input type="number" name="dexterity" value="{{ character.dexterity if character else 10 }}" required>
+                    <span class="modifier">Модифікатор: {{ ((character.dexterity if character else 10) - 10) // 2 }}</span>
+                </div>
+
+                <div class="stat-block">
+                    <label>Тілобудова:</label>
+                    <input type="number" name="constitution" value="{{ character.constitution if character else 10 }}" required>
+                    <span class="modifier">Модифікатор: {{ ((character.constitution if character else 10) - 10) // 2 }}</span>
+                </div>
+
+                <div class="stat-block">
+                    <label>Інтелект:</label>
+                    <input type="number" name="intelligence" value="{{ character.intelligence if character else 10 }}" required>
+                    <span class="modifier">Модифікатор: {{ ((character.intelligence if character else 10) - 10) // 2 }}</span>
+                </div>
+
+                <div class="stat-block">
+                    <label>Мудрість:</label>
+                    <input type="number" name="wisdom" value="{{ character.wisdom if character else 10 }}" required>
+                    <span class="modifier">Модифікатор: {{ ((character.wisdom if character else 10) - 10) // 2 }}</span>
+                </div>
+
+                <div class="stat-block">
+                    <label>Харизма:</label>
+                    <input type="number" name="charisma" value="{{ character.charisma if character else 10 }}" required>
+                    <span class="modifier">Модифікатор: {{ ((character.charisma if character else 10) - 10) // 2 }}</span>
+                </div>
+            </div>
+
+            <button type="submit">Зберегти</button>
+        </form>
+    </div>
+                <div>
+</body>
+</html>
